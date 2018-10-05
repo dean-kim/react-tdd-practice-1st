@@ -1,1 +1,0 @@
-This repo for practice test react components with Enzyme and Jest

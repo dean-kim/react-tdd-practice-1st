@@ -1,0 +1,1 @@
+This is practice for test react components with Enzyme and Jest

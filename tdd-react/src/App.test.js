@@ -23,4 +23,8 @@ describe('<Link /', () => {
         const wrapper = shallow(<Link address='www.google.com' />)
         expect(wrapper.instance().props.address).toBe('www.google.com')
     })
+    it('a tag node returns href correctly', () => {
+        const wrapper = shallow(<Link address='www.google.com' />)
+        expect(wrapper.props().href).toBe('www.google.com')
+    })
 })

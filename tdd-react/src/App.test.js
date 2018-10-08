@@ -7,8 +7,8 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
-    it('should contain 1 p element', () => {
+    it('should contain 1 element named App-header', () => {
         const wrapper = shallow(<App />);
-        expect(wrapper.find('p').length).toBe(1)
+        expect(wrapper.find('.App-header').exists()).toBe(true)
     })
 });

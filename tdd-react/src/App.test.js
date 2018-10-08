@@ -11,4 +11,8 @@ describe('<App />', () => {
         const wrapper = shallow(<App />);
         expect(wrapper.find('h1').text()).toBe('Welcome to React')
     })
+    it('matches the snapshot', () => {
+        const tree = shallow(<App />)
+        expect(tree).toMatchSnapshot()
+    })
 });

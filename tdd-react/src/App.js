@@ -9,8 +9,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-            <h1>Welcome to React</h1>
-          <p>
+            <h1 className="App-title">Welcome to React</h1>
+          <p className="App-intro">
             Edit <code>src/App.js</code> and save to reload.
           </p>
           <a
@@ -22,11 +22,6 @@ class App extends Component {
             Learn React
           </a>
         </header>
-          <ul className="tyler">
-              <li>Test 1</li>
-              <li>Test 2</li>
-              <li>Test 3</li>
-          </ul>
       </div>
     );
   }

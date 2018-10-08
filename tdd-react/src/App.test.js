@@ -27,4 +27,10 @@ describe('<Link /', () => {
         const wrapper = shallow(<Link address='www.google.com' />)
         expect(wrapper.props().href).toBe('www.google.com')
     })
+    it('returns null with true hide prop', () => {
+        const wrapper = shallow(<Link hide={false} />)
+        expect(wrapper.find('a').length).toBe(1)
+        wrapper.setProps({hide: true})
+        expect(wrapper.get(0)).toBeNull()
+    })
 })

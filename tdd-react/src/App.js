@@ -4,7 +4,7 @@ import './App.css';
 
 
 class App extends Component {
-    state = { on: false };
+    state = { on: false, input: '' };
     render() {
         return (
         <div className="App">
@@ -16,6 +16,8 @@ class App extends Component {
             <p className="button-state">{this.state.on ?
                 'Yes!' : 'No!'}</p>
             <button onClick={() => this.setState({on: true})}>Click</button>
+            <h2>{this.state.input}</h2>
+            <input onChange={(e) => this.setState({input: e.currentTarget.value})} type="text" />
         </div>
         );
     }

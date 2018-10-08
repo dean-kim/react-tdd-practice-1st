@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App, { Link } from './App';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import toJson from 'enzyme-to-json';
@@ -17,3 +17,10 @@ describe('<App />', () => {
         expect(toJson(tree)).toMatchSnapshot()
     })
 });
+
+describe('<Link /', () => {
+    it('link component accepts address prop', () => {
+        const wrapper = shallow(<Link address='www.google.com' />)
+        expect(wrapper.instance().props.address).toBe('www.google.com')
+    })
+})

@@ -7,8 +7,8 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
-    it('should render App', () => {
-        const wrapper = shallow(<App />, {context: {}, disableLifecycleMethods: bool});
-        console.log(wrapper.debug());
+    it('should contain 1 p element', () => {
+        const wrapper = shallow(<App />);
+        expect(wrapper.find('p').length).toBe(1)
     })
 });

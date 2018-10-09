@@ -15,6 +15,10 @@ class App extends Component {
         this.setState({ lifecycle: 'componentDidMount' })
     }
 
+    componentWillReceiveProps() {
+        this.setState({ lifecycle: 'componentWillReceiveProps' })
+    }
+
     render() {
         return (
         <div className="App">

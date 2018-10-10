@@ -27,7 +27,7 @@ export class TodoList extends Component {
                 <h1 className='todos--h1'>Todos</h1>
                 <input type="text" onChange={this.handleChange} value={this.state.input} />
                 <ul>
-                    {this.props.todos.map(({text}, i) => (
+                    {this.props.todos.map(({ text }, i) => (
                         <li onClick={this.handleClick(i)} key={i}>
                             {text}
                         </li>

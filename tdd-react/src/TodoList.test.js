@@ -33,4 +33,11 @@ describe('<TodoList />', () => {
 
         expect(props.removeTodo).toHaveBeenCalledWith(0)
     })
+    it('matches snapshot', () => {
+        const props = {
+            todos: []
+        }
+        const wrapper = shallow(<TodoList {...props} />)
+        expect(toJson(wrapper)).toMatchSnapshot()
+    })
 })

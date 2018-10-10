@@ -11,6 +11,11 @@ class App extends Component {
         lifecycle: ''
     };
 
+    handleStrings(str) {
+        if (str === 'Hello World') return true
+        return false
+    }
+
     componentDidMount() {
         this.setState({ lifecycle: 'componentDidMount' })
     }

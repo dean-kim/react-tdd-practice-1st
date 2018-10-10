@@ -8,6 +8,14 @@ import api from './api'
 
 configure({ adapter: new Adapter() })
 
+const updateInput = (wrapper, instance, newValue) => {
+    const input = wrapper.find(instance)
+    input.simulate('change', {
+        currentTarget: {value: newValue}
+    })
+    return wrapper.find(instance)
+}
+
 describe('<Form /', () => {
     // opted in by default
     test('receive promotions default is true', () => {
@@ -16,6 +24,18 @@ describe('<Form /', () => {
         expect(promotionInput.props().checked).toBe(true)
     })
     // actually input their information
+    test('allows user to fill out form', () => {
+        const wrapper = shallow(<Form />)
+        const nameInput = updateInput(wrapper, '[data-testid="name"]', 'Tyler')
+        const emailInput = updateInput(wrapper, '[data-testid="email"]', 'test@gmail.com')
+        const numberInput = updateInput(wrapper, '[data-testid="number"]', '8018882321')
+        wrapper.find('[data-testid="checked"]').simulate('click')
+
+        expect(nameInput.props().value).toBe('Tyler')
+        expect(emailInput.props().value).toBe('test@gmail.com')
+        expect(numberInput.props().value).toBe('8018882321')
+        expect(wrapper.find('[data-testid="checked"]').props().checked).toBe(false)
+    })
     // submit the form, calls api
     // matches snapshot
 })

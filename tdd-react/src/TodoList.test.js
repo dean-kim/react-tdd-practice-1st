@@ -23,4 +23,14 @@ describe('<TodoList />', () => {
 
         expect(props.addTodo).toHaveBeenCalledWith({text: 'Buy Groceries'})
     })
+    it('calls removeTodo Redux action creator on li click', () => {
+        const props = {
+            removeTodo: jest.fn(),
+            todos: [{text: 'Buy Groceries'}, {text: 'Change oil'}]
+        }
+        const wrapper = shallow(<TodoList {...props} />)
+        wrapper.find('li').at(0).simulate('click')
+
+        expect(props.removeTodo).toHaveBeenCalledWith(0)
+    })
 })

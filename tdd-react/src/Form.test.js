@@ -37,5 +37,15 @@ describe('<Form /', () => {
         expect(wrapper.find('[data-testid="checked"]').props().checked).toBe(false)
     })
     // submit the form, calls api
+    test('submit the form', () => {
+        jest.spyOn(api, 'addUser').mockImplementation(() => Promise.resolve({data: 'New User Added'}))
+        const wrapper = shallow(<Form/>)
+        updateInput(wrapper, '[data-testid="name"]', 'Tyler')
+        updateInput(wrapper, '[data-testid="email"]', 'test@gmail.com')
+        updateInput(wrapper, '[data-testid="number"]', '8018882321')
+        wrapper.find('[data-testid="addUserForm"]').simulate('submit', {preventDefault: () => {}})
+
+        expect(api.addUser).toHaveBeenCalledWith('Tyler', 'test@gmail.com', '8018882321')
+    })
     // matches snapshot
 })

@@ -1,9 +1,15 @@
 import React from 'react';
 
 class App extends React.Component {
-  render() {
-    return <h1>Hello World</h1>
-  }
+    render() {
+        let txt = this.props.txt
+        return <h1>{txt}</h1>
+    }
 }
+
+App.defaultProps = {
+    txt: "default props!"
+}
+
 
 export default App
